@@ -27,6 +27,8 @@ public class UserEntity {
     private String password;
 
     //头像
+    @TableField("photo")
+    private String photo;
 
     //注册时间
     @TableField("registration_date")
