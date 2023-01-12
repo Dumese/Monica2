@@ -2,7 +2,6 @@ package com.example.monica.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 public class UserDTO {

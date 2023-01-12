@@ -1,16 +1,11 @@
 package com.example.monica.controller;
 
-import com.example.monica.dto.UserDTO;
 import com.example.monica.entity.UserEntity;
 import com.example.monica.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/user")

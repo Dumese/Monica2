@@ -27,12 +27,12 @@ public class UserEntity {
     private String password;
 
     //头像
-    @TableField("photo")
-    private String photo;
+    @TableField("headPortrait")
+    private String headPortrait;
 
     //注册时间
-    @TableField("registration_date")
-    private Timestamp registration_date;
+    @TableField("creat_time")
+    private Timestamp creat_time;
 
     //状态
 }

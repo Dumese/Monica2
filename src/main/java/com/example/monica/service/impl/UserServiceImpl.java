@@ -26,7 +26,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
 
     @Override
     public UserEntity selectUserByPhone(@RequestParam Long phone) {
-        //user = userMapper.selectOne(phone);
+        //UserEntity user = userMapper.selectOne(phone);
         return null;
     }
 
@@ -35,3 +35,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         return null;
     }
 }
+
+    /*
+    @Override
+    public List<UserInfoTestVO> getInfo(UserQueryTestDTO userQueryTestDTO){
+        LambdaQueryWrapper<UserTestEntity> wrapper = Wrappers.lambdaQuery(UserTestEntity.class);
+        wrapper.eq(UserTestEntity::getId, userQueryTestDTO.getId());
+        wrapper.eq(UserTestEntity::getUsername, userQueryTestDTO.getUsername());
+        wrapper.eq(UserTestEntity::getNickName, userQueryTestDTO.getNickName());
+        wrapper.eq(UserTestEntity::getAccId, userQueryTestDTO.getLm());
+        List<UserTestEntity> userTests = userTestMapper.selectList(wrapper);
+        return BeanUtil.copyToList(userTests, UserInfoTestVO.class);
+    }
+
+     */
