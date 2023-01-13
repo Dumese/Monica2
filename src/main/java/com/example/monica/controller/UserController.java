@@ -30,4 +30,18 @@ public class UserController{
         return userService.register(registerDTO);
     }
 
+    /*
+    @RequestMapping(value = "/detail", method = RequestMethod.GET)
+    @ApiOperation(value = "获取用户信息")
+    public UserDetailVO detail(RegisterDTO registerDTO){
+        return userService.detail(registerDTO);
+    }
+     */
+
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @ApiOperation(value = "更新用户信息")
+    public UserDetailVO update(@RequestBody @Validated UserDetailVO UserDetailVO){
+        return userService.update(UserDetailVO);
+    }
 }

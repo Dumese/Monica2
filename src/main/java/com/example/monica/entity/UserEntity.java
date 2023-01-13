@@ -37,7 +37,7 @@ public class UserEntity {
 
     //性别
     @TableField("sex")
-    private String sex;
+    private int sex;
 
     //头像
     @TableField("headshot")
@@ -45,10 +45,10 @@ public class UserEntity {
 
     //状态
     @TableField("status")
-    private String status;
+    private int status;
 
     //登录时间
-    @TableField(value = "login_time", fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "login_time")
     private LocalDateTime login_time;
 
     //注册时间

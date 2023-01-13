@@ -39,12 +39,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         wrapper.eq(UserEntity::getPassword, loginDTO.getPassword());
         UserEntity user =  userMapper.selectOne(wrapper);
 
-
         // 获取当前时间
         user.setLogin_time(LocalDateTime.now());
-        System.out.println("时间是"+user.getLogin_time());
+        user.setStatus(1);
         userMapper.updateById(user);
-
 
         //拷贝信息
         BeanUtil.copyProperties(user, userDetailVO);
@@ -55,9 +53,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
     public UserDetailVO register(RegisterDTO registerDTO){
         UserDetailVO userDetailVO = new UserDetailVO();
         UserEntity user = new UserEntity();
+
         BeanUtil.copyProperties(registerDTO, user);
         userMapper.insert(user);
+
+        // 获取当前时间
+        user.setLogin_time(LocalDateTime.now());
+        userMapper.updateById(user);
+
         BeanUtil.copyProperties(user, userDetailVO);
+        return userDetailVO;
+    }
+
+    public UserDetailVO update(UserDetailVO userDetailVO){
+
         return userDetailVO;
     }
 }
