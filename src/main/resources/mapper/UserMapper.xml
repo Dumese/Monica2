@@ -5,12 +5,15 @@
 <mapper namespace="com.example.monica.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="com.example.monica.entity.UserEntity">
         <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="nickName" jdbcType="VARCHAR" property="nickName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="phone" jdbcType="INTEGER" property="phone"/>
-        <result column="status" jdbcType="INTEGER" property="status"/>
-        <result column="headPortrait" jdbcType="VARCHAR" property="headPortrait"/>
-        <result column="creat_time" jdbcType="TIMESTAMP" property="creat_time"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="sex" jdbcType="TINYINT" property="sex"/>
+        <result column="headshot" jdbcType="VARCHAR" property="headshot"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="login_time" jdbcType="TIMESTAMP" property="login_time"/>
+        <result column="register_time" jdbcType="TIMESTAMP" property="register_time"/>
     </resultMap>
 
     <select id="user" resultType="com.example.monica.entity.UserEntity">

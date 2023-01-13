@@ -2,14 +2,10 @@ package com.example.monica.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import java.sql.Timestamp;
+import javax.validation.constraints.Email;
 
 @Data
-public class UserDTO {
-    @ApiModelProperty("id")
-    private Long id;
-
+public class RegisterDTO {
     @ApiModelProperty("手机号")
     private Long phone;
 
@@ -19,11 +15,7 @@ public class UserDTO {
     @ApiModelProperty("密码")
     private String password;
 
-    //头像
-
-    //注册时间
-    @ApiModelProperty("注册时间")
-    private Timestamp registration_date;
-
-    //状态
+    @Email
+    @ApiModelProperty("邮箱")
+    private String email;
 }
