@@ -13,5 +13,8 @@ public interface UserService {
     UserDetailVO register(RegisterDTO registerDTO);
 
     //更新用户信息
-    UserDetailVO update(UserDetailVO userDetailVO);
+    Long update(UserDetailVO userDetailVO);
+
+    //获取用户信息
+    UserDetailVO detail(Long id);
 }

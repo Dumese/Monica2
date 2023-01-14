@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/user")
 @Api(tags = "用户接口")
@@ -30,18 +33,21 @@ public class UserController{
         return userService.register(registerDTO);
     }
 
-    /*
+
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     @ApiOperation(value = "获取用户信息")
-    public UserDetailVO detail(RegisterDTO registerDTO){
-        return userService.detail(registerDTO);
+    public UserDetailVO detail(@RequestParam Long id) {
+        return userService.detail(id);
     }
-     */
 
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
     @ApiOperation(value = "更新用户信息")
-    public UserDetailVO update(@RequestBody @Validated UserDetailVO UserDetailVO){
-        return userService.update(UserDetailVO);
+    public Map<String, String> update(@RequestBody @Validated UserDetailVO UserDetailVO){
+        Map<String, String> result = new HashMap<>();
+        Long id =  userService.update(UserDetailVO);
+        result.put("id", id.toString());
+        result.put("status", "成功");
+        return result;
     }
 }

@@ -65,8 +65,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         return userDetailVO;
     }
 
-    public UserDetailVO update(UserDetailVO userDetailVO){
+    public Long update(UserDetailVO userDetailVO){
+        Long id = userDetailVO.getId();
+        UserEntity userEntity = userMapper.selectById(id);
+        BeanUtil.copyProperties(userDetailVO, userEntity);
+        userMapper.updateById(userEntity);
+        return userEntity.getId();
+    }
 
+    public UserDetailVO detail(Long id){
+        UserDetailVO userDetailVO = new UserDetailVO();
+        UserEntity userEntity = userMapper.selectById(id);
+        BeanUtil.copyProperties(userEntity, userDetailVO);
         return userDetailVO;
     }
 }
